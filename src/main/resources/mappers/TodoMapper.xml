@@ -10,4 +10,20 @@
     <insert id="insert">
         insert into tbl_todo(content,dueDate,writer) values (#{content},#{dueDate},#{writer})
     </insert>
+<!--    vo > dto 로 변환은 mapper 에서 자동으로 진행해주니까-->
+    <select id="selectAll" resultType="net.ict.springex.domain.TodoVO">
+        select * from tbl_todo order by num desc
+    </select>
+
+    <delete id="delete">
+        delete from tbl_todo where num=#{num}
+    </delete>
+
+    <select id="selectOne" resultType="net.ict.springex.domain.TodoVO">
+        select * from tbl_todo where num=#{num}
+    </select>
+
+    <update id="update">
+        update tbl_todo set content=#{content}, dueDate=#{dueDate}, finished=#{finished} where num=#{num}
+    </update>
 </mapper>

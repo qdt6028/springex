@@ -17,7 +17,6 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-
     <!--    DispatcherServlet 등록 = FrontController 가 될 Servlet -->
     <servlet>
         <servlet-name>appServlet</servlet-name>
@@ -39,5 +38,20 @@
 <!--        모든 경로의 요청을 다 받아야 하니까 / 표시를 해준다.-->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--    1115 : 한글깨짐 방지를 위한 UTF-8 필터 처리-->
+    <filter>
+        <filter-name>encoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encoding</filter-name>
+        <servlet-name>appServlet</servlet-name>
+    </filter-mapping>
+
 
 </web-app>

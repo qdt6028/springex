@@ -49,38 +49,35 @@
                     <div class="card-body">
                         <form action="/todo/modify" method="post">
 
-
-
                             <div class="input-group mb-3">
-                                <span class="input-group-text">TNO</span>
-                                <input type="text" name="tno" class="form-control"
-                                       value=<c:out value="${dto.tno}"></c:out> readonly>
+                                <span class="input-group-text">NUM</span>
+                                <input type="text" name="num" class="form-control"
+                                       value=<c:out value="${dtos.num}"></c:out> readonly>
                             </div>
+
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Title</span>
-                                <input type="text" name="title" class="form-control"
-                                       value=<c:out value="${dto.title}"></c:out> >
+                                <span class="input-group-text">Content</span>
+                                <input type="text" name="content" class="form-control"
+                                       value=<c:out value="${dtos.content}"></c:out> >
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text">DueDate</span>
                                 <input type="date" name="dueDate" class="form-control"
-                                       value=<c:out value="${dto.dueDate}"></c:out> >
-
+                                       value=<c:out value="${dtos.dueDate}"></c:out> >
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text">Writer</span>
                                 <input type="text" name="writer" class="form-control"
-                                       value=<c:out value="${dto.writer}"></c:out> readonly>
-
+                                       value=<c:out value="${dtos.writer}"></c:out> readonly>
                             </div>
 
                             <div class="form-check">
                                 <label class="form-check-label" >
                                     Finished &nbsp;
                                 </label>
-                                <input class="form-check-input" type="checkbox" name="finished" ${dto.finished?"checked":""} >
+                                <input class="form-check-input" type="checkbox" name="finished" ${dtos.finished?"checked":""} >
                             </div>
 
                             <div class="my-4">
@@ -110,29 +107,30 @@
 
                         const formObj = document.querySelector("form")
 
-                        // document.querySelector(".btn-danger").addEventListener("click",function(e) {
-                        //
-                        //     e.preventDefault()
-                        //     e.stopPropagation()
-                        //
-                        //     formObj.action ="/todo/remove"
-                        //     formObj.method ="post"
-                        //
-                        //     formObj.submit()
-                        //
-                        // },false);
-
                         document.querySelector(".btn-danger").addEventListener("click",function(e) {
 
                             e.preventDefault()
                             e.stopPropagation()
 
-                            formObj.action =`/todo/remove?${pageRequestDTO.link}`
+                            formObj.action ="/todo/delete"
                             formObj.method ="post"
 
                             formObj.submit()
 
                         },false);
+
+                        <%--document.querySelector(".btn-danger").addEventListener("click",function(e) {--%>
+
+                        <%--    e.preventDefault()--%>
+                        <%--    e.stopPropagation()--%>
+
+                        <%--    &lt;%&ndash;formObj.action =`/todo/remove?${pageRequestDTO.link}`&ndash;%&gt;--%>
+                        <%--    formObj.action =`/todo/delete?num=${dtos.num}`--%>
+                        <%--    formObj.method ="post"--%>
+
+                        <%--    formObj.submit()--%>
+
+                        <%--},false);--%>
 
 
                         document.querySelector(".btn-primary").addEventListener("click",function(e) {
@@ -147,23 +145,23 @@
 
                         },false);
 
-                        /*document.querySelector(".btn-secondary").addEventListener("click",function(e) {
+                        document.querySelector(".btn-secondary").addEventListener("click",function(e) {
 
                             e.preventDefault()
                             e.stopPropagation()
 
                             self.location = "/todo/list";
 
-                        },false);*/
-
-                        document.querySelector(".btn-secondary").addEventListener("click",function(e) {
-
-                            e.preventDefault()
-                            e.stopPropagation()
-
-                            self.location= `/todo/list?${pageRequestDTO.link}`
-
                         },false);
+
+                        <%--document.querySelector(".btn-secondary").addEventListener("click",function(e) {--%>
+
+                        <%--    e.preventDefault()--%>
+                        <%--    e.stopPropagation()--%>
+
+                        <%--    self.location= `/todo/list?${pageRequestDTO.link}`--%>
+
+                        <%--},false);--%>
 
 
                     </script>

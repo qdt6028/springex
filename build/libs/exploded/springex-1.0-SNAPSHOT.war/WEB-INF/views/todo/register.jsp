@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </form>
-
+<%--                        자바스크립트를 이용해서 오류 객체를 생성하여, 브라우저 콘솔에서 해당 오류에 대한 안내를 해줄 수 있다.--%>
                         <script>
 
                             const serverValidResult = {}

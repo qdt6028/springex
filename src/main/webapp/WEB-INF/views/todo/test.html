@@ -1,6 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!doctype html>
 
@@ -29,7 +26,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a class="nav-link active" aria-current="page" href="/todo/register">Home</a>
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
                                 <a class="nav-link" href="#">Features</a>
                                 <a class="nav-link" href="#">Pricing</a>
                                 <a class="nav-link disabled">Disabled</a>
@@ -49,32 +46,27 @@
                         Featured
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title"> My Todo List :> </h5>
+                        <h5 class="card-title">Special title treatment</h5>
                         <table class="table">
                             <thead>
-                            <tr>
-                                <th scope="col">NUM</th>
-                                <th scope="col">CONTENT</th>
-                                <th scope="col">WRITER</th>
-                                <th scope="col">DUEDATE</th>
-                                <th scope="col">FINISHED</th>
-                                <th scope="col">DELETE</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">NUM</th>
+                                    <th scope="col">CONTENT</th>
+                                    <th scope="col">WRITER</th>
+                                    <th scope="col">DUEDATE</th>
+                                    <th scope="col">FINISHED</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${dtoList}" var="dto" varStatus="loop">
-<%--                                <c:set var="size" value="${fn:length(dto)}"/>--%>
-                                <tr>
-<%--                                    <th scope="row"><c:out value="${dto.num}"></c:out></th>--%>
-                                    <th scope="row">${loop.count}</th>
-                                    <td><a href="/todo/read?num=${dto.num}" class="text-decoration-none"> <c:out value="${dto.content}"></a></c:out></td>
-                                    <td><c:out value="${dto.writer}"></c:out></td>
-                                    <td><c:out value="${dto.dueDate}"></c:out></td>
-                                    <td><c:out value="${dto.finished}"></c:out></td>
-                                    <td><button type="button"
-                                                onclick="location='/todo/delete?num=${dto.num}';">Delete</button></td>
-                                </tr>
-                            </c:forEach>
+                                <c:forEach items="${dtoList}" var="dto">
+                                    <tr>
+                                        <th scope="row"><c:out value="${dto.num}"></c:out></th>
+                                        <td><c:out value="${dto.content"></c:out></td>
+                                        <td><c:out value="${dto.writer"></c:out></td>
+                                        <td><c:out value="${dto.dueDate"></c:out></td>
+                                        <td><c:out value="${dto.finished"></c:out></td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
 
                         </table>
@@ -90,7 +82,7 @@
         <h1>Content</h1>
     </div>
     <div class="row footer">
-        <!--<h1>Footer</h1>-->
+       <!--<h1>Footer</h1>-->
 
         <div class="row   fixed-bottom" style="z-index: -100">
             <footer class="py-1 my-1 ">
